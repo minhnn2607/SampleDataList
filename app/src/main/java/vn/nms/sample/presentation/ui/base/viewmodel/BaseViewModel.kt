@@ -95,12 +95,11 @@ abstract class BaseViewModel(private val savedStateHandle: SavedStateHandle? = n
         showProgress: Boolean = true,
         responseConsumer: PlainConsumer<T>? = null,
         errorConsumer: PlainConsumer<ErrorState>? = null,
-        progressMessage: String = "",
+        loadingMessage: String = "",
         disposable: CompositeDisposable? = null,
-        skipDispose: Boolean = false,
-        showOnTopLoading: Boolean = false
+        skipDispose: Boolean = false
     ) {
-        if (showProgress) publishState(LoadingState(progressMessage, showOnTopLoading))
+        if (showProgress) publishState(LoadingState(loadingMessage))
         val request =
             this.compose(if (showProgress) SchedulerProvider.ioToMainSingle() else SchedulerProvider.ioToIoSingle())
                 .subscribe({
@@ -121,11 +120,11 @@ abstract class BaseViewModel(private val savedStateHandle: SavedStateHandle? = n
         showProgress: Boolean = true,
         responseConsumer: PlainConsumer<T>? = null,
         errorConsumer: PlainConsumer<ErrorState>? = null,
-        progressMessage: String = "",
+        loadingMessage: String = "",
         disposable: CompositeDisposable? = null,
         skipDispose: Boolean = false
     ) {
-        if (showProgress) publishState(LoadingState(progressMessage))
+        if (showProgress) publishState(LoadingState(loadingMessage))
         val request =
             this.compose(if (showProgress) SchedulerProvider.ioToMainFlowable() else SchedulerProvider.ioToIoFlowable())
                 .subscribe({
@@ -148,11 +147,11 @@ abstract class BaseViewModel(private val savedStateHandle: SavedStateHandle? = n
         showProgress: Boolean = true,
         responseConsumer: PlainConsumer<T>? = null,
         errorConsumer: PlainConsumer<ErrorState>? = null,
-        progressMessage: String = "",
+        loadingMessage: String = "",
         disposable: CompositeDisposable? = null,
         skipDispose: Boolean = false
     ) {
-        if (showProgress) publishState(LoadingState(progressMessage))
+        if (showProgress) publishState(LoadingState(loadingMessage))
         val request =
             this.compose(if (showProgress) SchedulerProvider.ioToMainObservable() else SchedulerProvider.ioToIoObservable())
                 .subscribe({

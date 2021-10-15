@@ -9,5 +9,5 @@ data class ErrorState(
     var reason: String? = ""
 ) : State(errorMessage)
 
-data class LoadingState(var loadingMessage: String = "", var showOnTopLoading : Boolean = false) : State(loadingMessage)
+data class LoadingState(var loadingMessage: String = "") : State(loadingMessage)
 
