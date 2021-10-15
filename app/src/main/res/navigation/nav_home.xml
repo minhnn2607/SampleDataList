@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="vn.nms.sample.presentation.ui.features.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_movie_list">
+
+        <deepLink
+            android:id="@+id/deepLink"
+            android:autoVerify="true"
+            app:uri="@string/scheme_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieSingleTypePagingFragment"
+        android:name="vn.nms.sample.presentation.ui.features.movie.paging.single_type.MovieSingleTypePagingFragment"
+        android:label="MovieSingleType"
+        tools:layout="@layout/fragment_movie_list" />
+
+    <fragment
+        android:id="@+id/movieMultiTypeNetworkPagingFragment"
+        android:name="vn.nms.sample.presentation.ui.features.movie.paging.multi_type_network.MovieMultiTypeNetworkPagingFragment"
+        android:label="MovieMultiTypeNetwork"
+        tools:layout="@layout/fragment_movie_list" />
+
+    <fragment
+        android:id="@+id/movieMultiTypeNetworkDatabasePagingFragment"
+        android:name="vn.nms.sample.presentation.ui.features.movie.paging.multi_type_network_db.MovieMultiTypeNetworkDatabasePagingFragment"
+        android:label="MovieMultiTypeNetworkDatabase"
+        tools:layout="@layout/fragment_movie_list" />
+
+    <fragment
+        android:id="@+id/movieSingleTypeFragment"
+        android:name="vn.nms.sample.presentation.ui.features.movie.simple.single_type.MovieSingleTypeFragment"
+        android:label="MovieSingleTypeFragment"
+        tools:layout="@layout/fragment_movie_list" />
+
+    <fragment
+        android:id="@+id/movieMultiTypeFragment"
+        android:name="vn.nms.sample.presentation.ui.features.movie.simple.multi_type.MovieMultiTypeFragment"
+        android:label="MovieMultiTypeFragment"
+        tools:layout="@layout/fragment_movie_list" />
+
+    <action
+        android:id="@+id/actionHomeToMovieSingleTypePaging"
+        app:destination="@id/movieSingleTypePagingFragment"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/actionHomeToMovieMultiTypePagingNetwork"
+        app:destination="@id/movieMultiTypeNetworkPagingFragment"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/actionHomeToMovieMultiTypePagingNetworkDatabase"
+        app:destination="@id/movieMultiTypeNetworkDatabasePagingFragment"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/actionHomeToMovieMultiType"
+        app:destination="@id/movieMultiTypeFragment"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/actionHomeToMovieSingleType"
+        app:destination="@id/movieSingleTypeFragment"
+        app:enterAnim="@anim/slide_in_left"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_right" />
+</navigation>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dto"
+            type="vn.nms.sample.domain.model.MovieModel" />
+
+        <variable
+            name="imageLoader"
+            type="vn.nms.sample.presentation.utils.image.ImageLoader" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/imgThumb"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@null"
+            app:imageLoader="@{imageLoader}"
+            app:imageUrl="@{dto.thumb}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toEndOf="@id/imgThumb"
+            android:text="@{dto.name}"
+            android:textStyle="bold"
+            tools:text="TITLE" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:layout_alignStart="@id/tvTitle"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@{dto.description}"
+            tools:text="Description" />
+
+    </RelativeLayout>
+
+</layout>

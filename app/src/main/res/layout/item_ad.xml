@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dto"
+            type="vn.nms.sample.domain.model.AdModel" />
+
+        <variable
+            name="imageLoader"
+            type="vn.nms.sample.presentation.utils.image.ImageLoader" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgThumb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            app:imageLoader="@{imageLoader}"
+            app:imageFullUrl="@{dto.image}"
+            android:adjustViewBounds="true"
+            tools:src="@mipmap/ic_launcher" />
+
+    </RelativeLayout>
+
+</layout>

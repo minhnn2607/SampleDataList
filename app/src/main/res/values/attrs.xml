@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AppNavigationBar">
+        <attr name="anb_type" format="enum">
+            <enum name="back" value="0"/>
+            <enum name="left_right_menu" value="1"/>
+        </attr>
+        <attr name="anb_title" format="string"/>
+        <attr name="anb_center_title" format="boolean"/>
+        <attr name="anb_show_back" format="boolean"/>
+        <attr name="anb_left_text" format="string"/>
+        <attr name="anb_right_text" format="string"/>
+        <attr name="anb_left_image" format="reference"/>
+        <attr name="anb_right_image" format="reference"/>
+    </declare-styleable>
+
+
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_init"
+    app:startDestination="@id/initFragment">
+
+    <fragment
+        android:id="@+id/initFragment"
+        android:name="vn.nms.sample.presentation.ui.features.init.InitFragment"
+        android:label="InitFragment" />
+
+    <fragment
+        android:id="@+id/webFragment"
+        tools:layout="@layout/fragment_web_view"
+        android:name="vn.nms.sample.presentation.ui.features.web.WebFragment"
+        android:label="WebFragment" >
+        <argument android:name="title"
+            app:argType="string"/>
+        <argument
+            android:name="url"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/memberFragment"
+        android:name="vn.nms.sample.presentation.ui.features.member.MemberFragment"
+        android:label="MemberFragment" />
+
+    <action
+        android:id="@+id/action_open_web_view"
+        app:destination="@id/webFragment"
+        app:enterAnim="@anim/enter_anim_effect"
+        app:popExitAnim="@anim/exit_anim_effect"/>
+
+    <action
+        android:id="@+id/action_open_member"
+        app:destination="@id/memberFragment"
+        app:enterAnim="@anim/enter_anim_effect"
+        app:popExitAnim="@anim/exit_anim_effect"/>
+
+
+    <action
+        android:id="@+id/action_open_home"
+        app:destination="@id/homeFragment"
+        app:enterAnim="@anim/enter_anim_effect"
+        app:popExitAnim="@anim/exit_anim_effect"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/homeFragment"
+        app:popUpToInclusive="true" />
+</navigation>

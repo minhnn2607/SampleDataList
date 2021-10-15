@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/tab_home"
+        android:title="@string/tab_home" />
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/tab_setting"
+        android:title="@string/tab_setting"/>
+
+</menu>

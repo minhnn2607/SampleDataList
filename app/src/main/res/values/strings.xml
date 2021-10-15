@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_scheme">sample_nms</string>
+
+    <string name="scheme_home">sample_nms://home</string>
+    <string name="scheme_setting">sample_nms://setting</string>
+
+    <string name="notification_channel_id" translatable="false">AppChannelId</string>
+    <string name="notification_channel_name" translatable="false">AppChannelName</string>
+
+    <string name="error_common">An error has occurred. Please try again later</string>
+    <string name="error_network_connection">Not connected to the internet</string>
+    <string name="error_network_timeout">Timed out. Please try again later</string>
+
+    <string name="tab_home">Home</string>
+    <string name="tab_setting">Settings</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="movie_list">Movie List</string>
+
+
+    <string name="input_tag" translatable="false">InputTag</string>
+    <string name="parent_input_tag" translatable="false">ParentInputTag</string>
+
+    <string name="error_missing_field">Please input all field</string>
+
+    <string name="message_login_success">Login success</string>
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="vn.nms.sample.presentation.ui.features.home.HomeViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <vn.nms.sample.presentation.ui.widget.AppNavigationBar
+            android:id="@+id/navBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            app:anb_center_title="true"
+            app:anb_show_back="false"
+            app:anb_title="@string/tab_home"
+            app:anb_type="back" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:onClick="@{()->vm.navigationHelper.actionHomeToMovieSingleType(context)}"
+                android:text="SINGLE VIEW TYPE - SIMPLE LIST"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10sdp"
+                app:backgroundTint="@color/colorWhite"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="@dimen/_1sdp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:onClick="@{()->vm.navigationHelper.actionHomeToMovieMultiType(context)}"
+                android:text="MULTI VIEW TYPE - SIMPLE LIST"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10sdp"
+                app:backgroundTint="@color/colorWhite"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="@dimen/_1sdp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->vm.navigationHelper.actionHomeToMovieSingleTypePaging(context)}"
+                android:text="SINGLE VIEW TYPE - PAGINATION LIST"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:backgroundTint="@color/colorWhite"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="@dimen/_1sdp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:onClick="@{()->vm.navigationHelper.actionHomeToMovieMultiTypePagingNetwork(context)}"
+                android:text="MULTI VIEW TYPE - PAGINATION LIST - NETWORK ONLY"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10sdp"
+                app:backgroundTint="@color/colorWhite"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="@dimen/_1sdp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:onClick="@{()->vm.navigationHelper.actionHomeToMovieMultiTypePagingNetworkDb(context)}"
+                android:text="MULTI VIEW TYPE - PAGINATION LIST - NETWORK + DATABASE"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_10sdp"
+                app:backgroundTint="@color/colorWhite"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="@dimen/_1sdp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>
