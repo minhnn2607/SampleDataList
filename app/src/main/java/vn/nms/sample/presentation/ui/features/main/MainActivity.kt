@@ -39,14 +39,14 @@ class MainActivity : BaseActivity() {
         handleDeeplinkIntent()
     }
 
-    override fun onBackPressed() {
-        val foregroundFragment = getForegroundFragment()
-        if (foregroundFragment is MainFragment) {
-            foregroundFragment.doOnBackPressed()
-        } else {
-            super.onBackPressed()
-        }
-    }
+//    override fun onBackPressed() {
+//        val foregroundFragment = getForegroundFragment()
+//        if (foregroundFragment is MainFragment) {
+//            foregroundFragment.doOnBackPressed()
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
 
     private fun getForegroundFragment(): Fragment? {
         val navHostFragment: Fragment? =

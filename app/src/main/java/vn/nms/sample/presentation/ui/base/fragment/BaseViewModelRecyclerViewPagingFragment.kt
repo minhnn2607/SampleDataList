@@ -6,13 +6,13 @@ import androidx.databinding.ViewDataBinding
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import timber.log.Timber
 import vn.nms.sample.R
 import vn.nms.sample.presentation.ui.adapter.FooterLoadStateAdapter
 import vn.nms.sample.presentation.ui.base.viewmodel.BaseListViewModel
-import vn.nms.sample.presentation.ui.widget.PreCachingLayoutManager
 import javax.inject.Inject
 
 abstract class BaseViewModelRecyclerViewPagingFragment<B : ViewDataBinding,
@@ -95,7 +95,7 @@ abstract class BaseViewModelRecyclerViewPagingFragment<B : ViewDataBinding,
         viewModel.refresh()
     }
 
-    open fun createLayoutManager(): RecyclerView.LayoutManager = PreCachingLayoutManager(activity)
+    open fun createLayoutManager(): RecyclerView.LayoutManager = LinearLayoutManager(activity)
 
     open fun hasFixedSize() = false
 

@@ -75,9 +75,6 @@ class MovieMultiTypeItemListAdapter @Inject constructor(
 
     inner class MovieViewHolder(view: View) :
         BaseItemViewHolder<MovieItemViewModel, ItemMovieBinding>(view) {
-        init {
-
-        }
 
         override fun setItem(data: MovieItemViewModel, binding: ItemMovieBinding) {
             super.setItem(data, binding)
@@ -88,9 +85,6 @@ class MovieMultiTypeItemListAdapter @Inject constructor(
 
     inner class AdViewHolder(view: View) :
         BaseItemViewHolder<AdItemViewModel, ItemAdBinding>(view) {
-        init {
-
-        }
 
         override fun setItem(data: AdItemViewModel, binding: ItemAdBinding) {
             super.setItem(data, binding)

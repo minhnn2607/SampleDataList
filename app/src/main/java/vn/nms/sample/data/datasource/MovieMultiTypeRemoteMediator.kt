@@ -74,6 +74,9 @@ class MovieMultiTypeRemoteMediator constructor(
                             }
                         }
                     }
+                    else -> {
+                        MovieRequest.SkipRequest
+                    }
                 }
             }.flatMap { request ->
                 when (request) {
@@ -102,6 +105,9 @@ class MovieMultiTypeRemoteMediator constructor(
                             .map<MediatorResult> {
                                 MediatorResult.Success(false)
                             }.onErrorReturn { MediatorResult.Error(it) }
+                    }
+                    else -> {
+                        Single.just(MediatorResult.Success(false))
                     }
                 }
             }

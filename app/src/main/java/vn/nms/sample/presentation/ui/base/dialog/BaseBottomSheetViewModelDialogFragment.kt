@@ -42,13 +42,6 @@ abstract class BaseBottomSheetViewModelDialogFragment<B : ViewDataBinding, VM : 
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        if (activity !is BaseActivity) {
-            throw IllegalStateException("All fragment's container must extend BaseActivity")
-        }
-    }
-
     @CallSuper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

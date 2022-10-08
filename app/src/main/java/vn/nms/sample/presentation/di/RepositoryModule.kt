@@ -1,5 +1,6 @@
 package vn.nms.sample.presentation.di
 
+import androidx.paging.ExperimentalPagingApi
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -21,6 +22,7 @@ abstract class RepositoryModule {
     @Binds
     abstract fun bindSharePrefRepo(repoImpl: SharePrefRepoImpl): SharePrefRepo
 
+    @ExperimentalPagingApi
     @Binds
     abstract fun bindHomeRepo(repoImpl: HomeRepoImpl): HomeRepo
 }

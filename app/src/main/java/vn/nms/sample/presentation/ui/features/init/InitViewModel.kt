@@ -2,11 +2,10 @@ package vn.nms.sample.presentation.ui.features.init
 
 import android.content.Context
 import android.os.Bundle
-import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import vn.nms.sample.data.extensions.onSuccess
 import vn.nms.sample.domain.model.intent.InitScreenIntent
 import vn.nms.sample.domain.usecase.InitStartUpScreenUseCase
-import vn.nms.sample.data.extensions.onSuccess
 import vn.nms.sample.presentation.ui.base.viewmodel.BaseViewModel
 import vn.nms.sample.presentation.utils.NavigatorHelper
 import javax.inject.Inject

@@ -16,10 +16,6 @@ class AppNavigationBar @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs) {
 
-//    <enum name="back" value="0"/>
-//    <enum name="left_right_menu" value="1"/>
-
-    var tvTitle: TextView? = null
     private var tvLeft: TextView? = null
     private var tvRight: TextView? = null
     private var imgLeft: ImageView? = null

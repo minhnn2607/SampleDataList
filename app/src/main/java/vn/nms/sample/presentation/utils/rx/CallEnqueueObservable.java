@@ -15,6 +15,8 @@
  */
 package vn.nms.sample.presentation.utils.rx;
 
+import androidx.annotation.NonNull;
+
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -53,7 +55,7 @@ final class CallEnqueueObservable<T> extends Observable<Response<T>> {
       this.observer = observer;
     }
 
-    @Override public void onResponse(Call<T> call, Response<T> response) {
+    @Override public void onResponse(@NonNull Call<T> call, @NonNull Response<T> response) {
       if (disposed) return;
 
       try {
@@ -78,7 +80,7 @@ final class CallEnqueueObservable<T> extends Observable<Response<T>> {
       }
     }
 
-    @Override public void onFailure(Call<T> call, Throwable t) {
+    @Override public void onFailure(Call<T> call, @NonNull Throwable t) {
       if (call.isCanceled()) return;
 
       try {

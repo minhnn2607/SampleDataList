@@ -16,7 +16,4 @@ class MovieMultiTypeFragment :
 
     override fun getLayoutResource() = R.layout.fragment_movie_list
 
-    override fun initialize(view: View, ctx: Context?) {
-        super.initialize(view, ctx)
-    }
 }

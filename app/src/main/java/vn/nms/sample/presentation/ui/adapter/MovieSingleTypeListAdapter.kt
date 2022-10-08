@@ -32,10 +32,6 @@ class MovieSingleTypeListAdapter @Inject constructor(
 
     inner class MovieViewHolder(view: View) :
         BaseItemViewHolder<MovieItemViewModel, ItemMovieBinding>(view) {
-        init {
-
-        }
-
         override fun setItem(data: MovieItemViewModel, binding: ItemMovieBinding) {
             super.setItem(data, binding)
             binding.imageLoader = imageLoader

@@ -34,11 +34,10 @@ abstract class BaseItemPagedAdapter(
         parent: ViewGroup,
         viewType: Int
     ): BaseItemViewHolder<ItemViewModel, ViewDataBinding> {
-        val viewHolder = createItemViewHolder(
+        return createItemViewHolder(
             LayoutInflater.from(context).inflate(getLayoutResource(viewType), parent, false),
             viewType
         )
-        return viewHolder
     }
 
     fun getItemAt(position: Int): ItemViewModel? = getItem(position)

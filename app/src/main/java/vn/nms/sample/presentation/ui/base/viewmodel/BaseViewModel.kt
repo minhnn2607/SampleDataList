@@ -1,11 +1,9 @@
 package vn.nms.sample.presentation.ui.base.viewmodel
 
-import android.content.Context
 import android.os.Bundle
 import androidx.annotation.CallSuper
 import androidx.annotation.MainThread
 import androidx.annotation.NonNull
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavArgs

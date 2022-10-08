@@ -3,7 +3,6 @@ package vn.nms.sample.data.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import vn.nms.sample.domain.define.ObjectType
 
 @Entity(tableName = "movie_table")
 data class MovieEntity(

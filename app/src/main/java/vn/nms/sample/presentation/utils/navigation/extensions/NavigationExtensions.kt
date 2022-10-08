@@ -159,10 +159,10 @@ private fun NavDestination.createNavOptionsFor(
     // check if action has defaultNavOptions
     val defaultNavOptions: NavOptions? = navOptions ?: action.navOptions
     // popTo destinationId if no defaultNavOptions
-    val popUpTo: Int = if (defaultNavOptions?.popUpTo == null || defaultNavOptions.popUpTo == -1) id
-    else defaultNavOptions.popUpTo
+    val popUpTo: Int = if (defaultNavOptions?.popUpToId == null || defaultNavOptions.popUpToId == -1) id
+    else defaultNavOptions.popUpToId
 
-    val isPopUpToInclusive = defaultNavOptions?.isPopUpToInclusive ?: true
+    val isPopUpToInclusive = defaultNavOptions?.isPopUpToInclusive() ?: true
 
     return createNavOptions(
         popUpTo,

@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import vn.nms.sample.R
 import vn.nms.sample.presentation.ui.base.activity.BaseActivity
 import vn.nms.sample.presentation.utils.AutoClearedValue
 
@@ -28,7 +26,7 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return if (keepInstance()) {
-            getPersistentView(inflater, container, savedInstanceState, getLayoutResource())
+            getPersistentView(inflater, container)
         } else {
             binding = AutoClearedValue(
                 this,
@@ -39,21 +37,6 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
     }
 
     open fun isPrimaryColorStatusBar() : Boolean = false
-
-    override fun onResume() {
-        super.onResume()
-//        if (isPrimaryColorStatusBar()){
-//            activity?.window?.apply {
-//                statusBarColor = ContextCompat.getColor(requireContext(), R.color.colorPrimary)
-//                decorView.let { it.systemUiVisibility = it.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()}
-//            }
-//        } else {
-//            activity?.window?.apply {
-//                statusBarColor = ContextCompat.getColor(requireContext(), R.color.colorWhite)
-//                decorView.let { it.systemUiVisibility = it.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR }
-//            }
-//        }
-    }
 
     protected fun getFragmentArguments(): Bundle? {
         return arguments
@@ -82,9 +65,7 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
 
     private fun getPersistentView(
         inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-        layout: Int
+        container: ViewGroup?
     ): View? {
         if (rootView == null) {
             binding = AutoClearedValue(

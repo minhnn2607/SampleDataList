@@ -10,7 +10,6 @@ import vn.nms.sample.data.extensions.genericCast
 import vn.nms.sample.databinding.ItemAdBinding
 import vn.nms.sample.databinding.ItemMovieBinding
 import vn.nms.sample.domain.itemviewmodel.AdItemViewModel
-import vn.nms.sample.domain.itemviewmodel.EmptyItemViewModel
 import vn.nms.sample.domain.itemviewmodel.ItemViewModel
 import vn.nms.sample.domain.itemviewmodel.MovieItemViewModel
 import vn.nms.sample.presentation.ui.base.adapter.BaseItemPagedAdapter
@@ -76,9 +75,6 @@ class MovieMultiTypePagingAdapter @Inject constructor(
 
     inner class MovieViewHolder(view: View) :
         BaseItemViewHolder<MovieItemViewModel, ItemMovieBinding>(view) {
-        init {
-
-        }
 
         override fun setItem(data: MovieItemViewModel, binding: ItemMovieBinding) {
             super.setItem(data, binding)
@@ -89,10 +85,6 @@ class MovieMultiTypePagingAdapter @Inject constructor(
 
     inner class AdViewHolder(view: View) :
         BaseItemViewHolder<AdItemViewModel, ItemAdBinding>(view) {
-        init {
-
-        }
-
         override fun setItem(data: AdItemViewModel, binding: ItemAdBinding) {
             super.setItem(data, binding)
             binding.imageLoader = imageLoader

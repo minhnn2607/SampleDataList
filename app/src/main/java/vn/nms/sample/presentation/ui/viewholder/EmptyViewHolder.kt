@@ -6,6 +6,4 @@ import vn.nms.sample.domain.itemviewmodel.ItemViewModel
 import vn.nms.sample.presentation.ui.base.adapter.BaseItemViewHolder
 
 class EmptyViewHolder(view: View) :
-    BaseItemViewHolder<ItemViewModel, ItemEmptyBinding>(view) {
-
-}
+    BaseItemViewHolder<ItemViewModel, ItemEmptyBinding>(view)

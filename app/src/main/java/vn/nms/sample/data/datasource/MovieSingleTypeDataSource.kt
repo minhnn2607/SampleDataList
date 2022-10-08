@@ -6,7 +6,6 @@ import io.reactivex.rxjava3.core.Single
 import vn.nms.sample.data.services.ApiServices
 import vn.nms.sample.domain.model.MovieModel
 import vn.nms.sample.presentation.utils.SchedulerProvider
-import javax.inject.Inject
 
 class MovieSingleTypeDataSource constructor(private val apiServices: ApiServices) :
     RxPagingSource<Int, MovieModel>() {

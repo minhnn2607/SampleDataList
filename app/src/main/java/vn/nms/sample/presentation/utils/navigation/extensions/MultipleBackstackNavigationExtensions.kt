@@ -3,7 +3,6 @@ package vn.nms.sample.presentation.utils.navigation.extensions
 import android.util.SparseArray
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.forEach
-import androidx.core.util.set
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner
@@ -12,11 +11,11 @@ import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import vn.nms.sample.presentation.ui.widget.ExtendedBottomNavigationView
 import vn.nms.sample.presentation.utils.navigation.Navigator
 import vn.nms.sample.presentation.utils.navigation.data.NavAnimations
 import vn.nms.sample.presentation.utils.navigation.data.NavigateOnceDeeplinkRequest
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import vn.nms.sample.presentation.ui.widget.ExtendedBottomNavigationView
 
 // global variable to store user provided navGraphIds
 internal var mNavGraphIds: List<Int> = emptyList()
@@ -317,7 +316,7 @@ private fun BottomNavigationView.setupItemReselected(
         val navController = selectedFragment.navController
         // Pop the back stack to the start destination of the current navController graph
         navController.popBackStack(
-            navController.graph.startDestination, false
+            navController.graph.startDestinationId, false
         )
     }
 }

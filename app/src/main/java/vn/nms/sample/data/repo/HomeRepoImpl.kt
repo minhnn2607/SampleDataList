@@ -4,8 +4,6 @@ import androidx.paging.*
 import androidx.paging.rxjava3.flowable
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.functions.BiFunction
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import vn.nms.sample.data.datasource.MovieMultiTypeNetworkDataSource
 import vn.nms.sample.data.datasource.MovieMultiTypeRemoteMediator
 import vn.nms.sample.data.datasource.MovieSingleTypeDataSource
@@ -22,7 +20,8 @@ import vn.nms.sample.domain.model.MovieModel
 import vn.nms.sample.domain.repo.HomeRepo
 import javax.inject.Inject
 
-@ExperimentalCoroutinesApi
+
+@ExperimentalPagingApi
 class HomeRepoImpl @Inject constructor(
     private val apiServices: ApiServices,
     private val databaseManager: DatabaseManager,
@@ -58,7 +57,7 @@ class HomeRepoImpl @Inject constructor(
         ).flowable
     }
 
-    @ExperimentalPagingApi
+
     override fun getMovieAndAdsMediator(): Flowable<PagingData<ItemViewModel>> {
         return Pager(
             config = PagingConfig(
@@ -115,7 +114,7 @@ class HomeRepoImpl @Inject constructor(
     }
 
     override fun getMovieAndAdItemViewModel(): Single<List<ItemViewModel>> {
-        return apiServices.getAds().zipWith(apiServices.getMovies(1), { ads, movies ->
+        return apiServices.getAds().zipWith(apiServices.getMovies(1)) { ads, movies ->
             val result = mutableListOf<ItemViewModel>()
             val adModel = ads.data?.shuffled()?.firstOrNull()
             if (adModel != null) {
@@ -125,6 +124,6 @@ class HomeRepoImpl @Inject constructor(
                 MovieItemViewModel(movieModel, movieModel.id.toString())
             })
             result
-        })
+        }
     }
 }

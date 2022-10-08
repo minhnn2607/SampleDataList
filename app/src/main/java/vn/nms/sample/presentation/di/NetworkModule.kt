@@ -1,11 +1,9 @@
 package vn.nms.sample.presentation.di
 
-import android.content.Context
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.Interceptor
@@ -14,9 +12,7 @@ import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import vn.nms.sample.BuildConfig
-import vn.nms.sample.data.manager.SharedPrefsManager
 import vn.nms.sample.data.services.ApiServices
-import vn.nms.sample.domain.manager.UserManager
 import vn.nms.sample.presentation.utils.ServiceResponseConverter
 import vn.nms.sample.presentation.utils.rx.RxJava3CallAdapterFactory
 import java.util.concurrent.TimeUnit
@@ -29,20 +25,13 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideOkHttpClient(
-        @ApplicationContext context: Context,
-        userManager: UserManager,
-        sharedPrefsManager: SharedPrefsManager,
-        gSon: Gson
-    ): OkHttpClient {
+    internal fun provideOkHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val builder = generateNewRequestBuilder(
-                    context,
                     chain,
-                    userManager
                 )
-                var response = chain.proceed(builder.build())
+                val response = chain.proceed(builder.build())
                 response
 
             }
@@ -90,19 +79,16 @@ class NetworkModule {
     }
 
     private fun generateNewRequestBuilder(
-        context: Context,
-        chain: Interceptor.Chain,
-        userManager: UserManager
+        chain: Interceptor.Chain
     ): Request.Builder {
         val original = chain.request()
         val originalHttpUrl = original.url
         val builderUrl = originalHttpUrl.newBuilder()
 //            .addQueryParameter("lang", Locale.getDefault().language)
         val url = builderUrl.build()
-        val builder = chain.request().newBuilder()
+        return chain.request().newBuilder()
             .addHeader("Content-Type", "application/json; charset=utf-8")
             .url(url)
-        return builder
     }
 
 

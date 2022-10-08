@@ -5,7 +5,6 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.core.app.ShareCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import dagger.hilt.android.internal.managers.FragmentComponentManager
@@ -119,17 +118,6 @@ class NavigatorHelper(private val userManager: UserManager) {
     /**
      * Other action
      */
-    fun actionShare(context: Context, shareContext: String) {
-        getActivity(context).apply {
-            startActivity(ShareCompat.IntentBuilder.from(this)
-                .apply {
-                    setText(shareContext)
-                    setType("text/plain")
-                }
-                .createChooserIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-        }
-    }
-
     fun showDatePickerDialog(
         context: Context,
         calendar: Calendar,

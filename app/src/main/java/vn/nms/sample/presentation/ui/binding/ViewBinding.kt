@@ -41,19 +41,15 @@ object ViewBinding {
             if (Patterns.WEB_URL.matcher(url).matches()) {
                 view.settings.apply {
                     javaScriptEnabled = true
-                    setAppCachePath(view.context.cacheDir.absolutePath)
                     loadWithOverviewMode = true
                     allowFileAccess = false
                     allowContentAccess = false
-                    allowFileAccessFromFileURLs = false
                     setGeolocationEnabled(false)
                     setSupportZoom(true)
                     displayZoomControls = false
                     builtInZoomControls = false
                     cacheMode = WebSettings.LOAD_DEFAULT
-                    layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
                     domStorageEnabled = true
-                    setAppCacheEnabled(true)
                     defaultTextEncodingName = "utf-8"
                 }
                 view.loadUrl(url)

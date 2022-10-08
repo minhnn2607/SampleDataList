@@ -7,18 +7,17 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.PointF
 import android.graphics.drawable.ColorDrawable
-import android.util.DisplayMetrics
-import android.view.*
+import android.view.View
+import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
-import android.widget.*
-import androidx.fragment.app.Fragment
+import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jakewharton.rxbinding4.widget.textChangeEvents
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import vn.nms.sample.R
-import java.lang.reflect.Method
 import java.util.concurrent.TimeUnit
 
 fun Context.showDialog(
@@ -71,55 +70,11 @@ fun Context.hideKeyboard(view: View) {
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
 
-fun Context.showKeyboard() {
-    val isKeyboardVisible = try {
-        val manager =
-            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        val windowHeightMethod: Method =
-            InputMethodManager::class.java.getMethod("getInputMethodWindowVisibleHeight")
-        val height = windowHeightMethod.invoke(manager) as Int
-        height > 0
-    } catch (e: java.lang.Exception) {
-        false
-    }
-
-    val inputMethodManager: InputMethodManager =
-        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    if (!isKeyboardVisible) {
-        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
-    }
-}
-
-fun EditText.showKeyboard() {
-    try {
-        val input = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        input.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
-        input.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
-    } catch (ignored: Exception) {
-    }
-}
 
 fun EditText.hideKeyboard() {
     val inputMethodManager =
         context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
-}
-
-fun Activity.showKeyboard(yourEditText: EditText) {
-    try {
-        val input = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        input.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
-        input.showSoftInput(yourEditText, InputMethodManager.SHOW_IMPLICIT)
-    } catch (ignored: Exception) {
-    }
-}
-
-fun Fragment.hideKeyboard() {
-    view?.let { activity?.hideKeyboard(it) }
-}
-
-fun Fragment.showKeyboard(editText: EditText) {
-    activity?.showKeyboard(editText)
 }
 
 fun Activity.createLoadingDialog(): Dialog {
@@ -146,13 +101,6 @@ fun View.afterLayout(what: () -> Unit) {
             what.invoke()
         }
     })
-}
-
-fun Context.getDeviceWidth(): Int {
-    val displayMetrics = DisplayMetrics()
-    val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-    windowManager.defaultDisplay?.getMetrics(displayMetrics)
-    return displayMetrics.widthPixels
 }
 
 fun EditText.focus() {

@@ -6,11 +6,11 @@ import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
+import vn.nms.sample.data.extensions.showToast
 import vn.nms.sample.domain.define.ErrorState
 import vn.nms.sample.domain.define.LoadingState
 import vn.nms.sample.domain.define.State
 import vn.nms.sample.domain.define.SuccessState
-import vn.nms.sample.data.extensions.showToast
 import vn.nms.sample.presentation.ui.base.viewmodel.BaseViewModel
 
 abstract class BaseViewModelActivity<B : ViewDataBinding, VM : BaseViewModel> : BaseActivity() {
@@ -60,14 +60,14 @@ abstract class BaseViewModelActivity<B : ViewDataBinding, VM : BaseViewModel> : 
 
     override fun shouldUseDataBinding() = true
 
-    override fun onBackPressed() {
-        val countFragment = supportFragmentManager.backStackEntryCount
-        if (countFragment == 1) {
-            finish()
-        } else {
-            super.onBackPressed()
-        }
-    }
+//    override fun onBackPressed() {
+//        val countFragment = supportFragmentManager.backStackEntryCount
+//        if (countFragment == 1) {
+//            finish()
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
 
     override fun getScreenName(): String? = null
 

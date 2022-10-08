@@ -10,13 +10,13 @@ class InitActivity : BaseActivity() {
 
     override fun getScreenName(): String?  = null
 
-    override fun onBackPressed() {
-        if (getBackStackCount() == 1){
-            finish()
-        } else {
-            super.onBackPressed()
-        }
-    }
+//    override fun onBackPressed() {
+//        if (getBackStackCount() == 1){
+//            finish()
+//        } else {
+//            super.onBackPressed()
+//        }
+//    }
 
     private fun getBackStackCount(): Int {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)

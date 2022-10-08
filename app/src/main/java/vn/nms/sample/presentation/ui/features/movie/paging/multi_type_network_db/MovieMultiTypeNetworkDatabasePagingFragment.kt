@@ -1,7 +1,5 @@
 package vn.nms.sample.presentation.ui.features.movie.paging.multi_type_network_db
 
-import android.content.Context
-import android.view.View
 import dagger.hilt.android.AndroidEntryPoint
 import vn.nms.sample.R
 import vn.nms.sample.databinding.FragmentMovieListBinding
@@ -16,7 +14,4 @@ class MovieMultiTypeNetworkDatabasePagingFragment :
 
     override fun getLayoutResource() = R.layout.fragment_movie_list
 
-    override fun initialize(view: View, ctx: Context?) {
-        super.initialize(view, ctx)
-    }
 }

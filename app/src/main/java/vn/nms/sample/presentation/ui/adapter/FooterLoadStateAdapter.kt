@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import vn.nms.sample.R
 import vn.nms.sample.databinding.ItemFooterLoadingBinding
 
-class FooterLoadStateAdapter(
-) : LoadStateAdapter<FooterLoadStateAdapter.LoadStateViewHolder>() {
+class FooterLoadStateAdapter : LoadStateAdapter<FooterLoadStateAdapter.LoadStateViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

@@ -2,9 +2,6 @@ package vn.nms.sample.presentation.ui.features.splash
 
 import android.content.Intent
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import vn.nms.sample.R
 import vn.nms.sample.data.extensions.navigateActivity
 import vn.nms.sample.databinding.ActivitySplashBinding
@@ -24,12 +21,9 @@ class SplashActivity : BaseViewModelActivity<ActivitySplashBinding, SplashViewMo
 
     override fun initObserver() {
         if (isTaskRoot) {
-            viewModel.intent.observe(this, {
-                GlobalScope.launch {
-                    delay(600L)
-                    goToNextStep(it)
-                }
-            })
+            viewModel.intent.observe(this) {
+                goToNextStep(it)
+            }
         } else {
             goToNextStep(SplashIntent.OpenHome)
             return
